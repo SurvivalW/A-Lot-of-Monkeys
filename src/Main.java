@@ -1,15 +1,11 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Letters {
 
-    public static String getRJ(String filename)
+    public String getRJ(String filename)
     {
         try
         {
@@ -31,8 +27,24 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+
+    public static ArrayList<Chromosome> initializePopulation(ArrayList<String[]> keyBoard, int populationSize)
+    {
+        ArrayList<Chromosome> population = new ArrayList<Chromosome>();
+
+        for(int i = 0; i < populationSize; i++)
+        {
+            population.add(new Chromosome(keyBoard));
+        }
+        return population;
+    }
+
+    public void main(String[] args) throws Exception {
+        
         String script = getRJ("src/script.txt");
-        System.out.println(script);
+        
+
+
+
     }
 }
